@@ -7,6 +7,7 @@ COPY ./public ./public
 COPY package.json .
 COPY next.config.ts .
 COPY tsconfig.json .
+COPY postcss.config.mjs .
 
 RUN bun install
 RUN bun run build
