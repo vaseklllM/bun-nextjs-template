@@ -5,7 +5,7 @@ import { Button } from "@/shared/ui/Button";
 import { Input } from "@/shared/ui/Input";
 import { Pre } from "@/shared/ui/Pre";
 import { Auth } from "@/features/auth";
-import { Blog } from "@/pages/blog";
+import { Blog } from "@/screens/blog";
 import { NewsBlog } from "@/widgets/news-block";
 
 export default function Home() {
