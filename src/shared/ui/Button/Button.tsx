@@ -9,6 +9,6 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
 }
 
-export function Button(props: Props) {
-  return <button {...props} className={button(props)} />;
-}
+export const Button = (props: Props) => (
+  <button {...props} className={button(props)} />
+);
