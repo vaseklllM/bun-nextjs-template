@@ -5,7 +5,7 @@ import { NewsBlog } from "@/widgets/news-block";
 import Image from "next/image";
 
 export default async function Home() {
-  let data = await fetch("https://api.vercel.app/blog");
+  let data = await fetch(`${process.env.SERVER_URL}blog`);
   let posts: any[] = await data.json();
 
   return (
