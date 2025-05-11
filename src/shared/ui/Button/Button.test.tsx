@@ -1,6 +1,6 @@
-import { test, describe, expect } from "bun:test";
+import { render, screen } from "@testing-library/react";
+import { describe, expect, test } from "bun:test";
 import { Button } from "./Button";
-import { screen, render } from "@testing-library/react";
 
 describe("Button", () => {
   test("renders label", () => {
