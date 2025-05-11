@@ -7,6 +7,7 @@ import { Pre } from "@/shared/ui/Pre";
 import { Auth } from "@/features/auth";
 import { Blog } from "@/screens/blog";
 import { NewsBlog } from "@/widgets/news-block";
+import Image from "next/image";
 
 export default function Home() {
   const [nominals, setNominals] = useState<Nominal[]>([]);
@@ -41,6 +42,7 @@ export default function Home() {
       <Blog />
       <NewsBlog />
       <h2>ATM 2</h2>
+      <Image alt="globe" src="/globe.svg" width={20} height={20} />
       <br />
       <form onSubmit={submitHandler} className="w-100 pl-5">
         <label className="block text-sm font-medium text-gray-900 dark:text-white">
