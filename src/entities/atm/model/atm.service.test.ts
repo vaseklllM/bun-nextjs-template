@@ -1,7 +1,7 @@
 import { ATMService } from "./atm.service";
 
 describe("ATMService", () => {
-  test("test getNominals method", async () => {
+  test("should getNominals", async () => {
     const atm = new ATMService();
     const result = atm.getNominals(150);
 
