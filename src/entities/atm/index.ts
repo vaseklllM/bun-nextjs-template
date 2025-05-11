@@ -1,1 +1,1 @@
-export { ATMService, type Nominal } from "./model/ATMService";
+export { ATMService, type Nominal } from "./model/atm.service";
