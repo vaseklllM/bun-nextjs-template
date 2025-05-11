@@ -10,7 +10,7 @@ describe("ATMService", () => {
       leftAmount: 0,
       nominals: [
         { value: 100, count: 1 },
-        { value: 500, count: 1 },
+        { value: 50, count: 1 },
       ],
     });
   });
