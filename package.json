@@ -9,8 +9,7 @@
     "lint": "next lint",
     "steiger": "npx steiger ./src --watch",
     "prepare": "husky",
-    "test": "test",
-    "test:watch": "test --watch"
+    "test": "bun test --watch"
   },
   "dependencies": {
     "next": "15.3.2",
