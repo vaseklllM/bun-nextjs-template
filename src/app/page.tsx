@@ -1,20 +1,48 @@
-import { ATM } from "@/entities/atm";
 import { Auth } from "@/features/auth";
+import { RevalidateData } from "@/features/revalidate-data";
 import { Blog } from "@/screens/blog";
 import { NewsBlog } from "@/widgets/news-block";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function Home() {
-  let data = await fetch(`${process.env.SERVER_URL}blog`);
-  let posts: any[] = await data.json();
+  const data = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}blog`, {
+    cache: "force-cache",
+  });
+  const posts: any[] = await data.json();
+
+  const catsRes = await fetch(
+    "https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=beng&api_key=REPLACE_ME",
+    {
+      next: {
+        tags: ["cats"],
+      },
+    },
+  );
+
+  const cats = await catsRes.json();
 
   return (
-    <div>
+    <div className="p-4">
+      <Link href="/atm">go atm</Link>
+      <br />
+      <RevalidateData />
+      <br />
+      <h3>cars</h3>
+      {cats.map((cat: any) => (
+        <Image
+          key={cat.id}
+          alt="cat"
+          src={cat.url}
+          width={cat.width / 3}
+          height={cat.height / 3}
+        />
+      ))}
+      <pre>{JSON.stringify(cats, null, 2)}</pre>
+      <br />
       <Auth />
       <Blog />
       <NewsBlog />
-      <ATM />
-      <h2>ATM</h2>
       <Image alt="globe" src="/globe.svg" width={20} height={20} />
       <br />
       <ul>
