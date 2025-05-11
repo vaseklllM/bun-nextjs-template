@@ -17,5 +17,3 @@ RUN bun install
 RUN bun run build
 
 CMD ["bun", "test"]
-
-EXPOSE 3000
