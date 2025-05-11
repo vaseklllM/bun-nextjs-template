@@ -1,13 +1,13 @@
 "use client";
-import { FormEventHandler, useCallback, useState } from "react";
 import { ATMService, Nominal } from "@/entities/atm";
+import { Auth } from "@/features/auth";
+import { Blog } from "@/screens/blog";
 import { Button } from "@/shared/ui/Button";
 import { Input } from "@/shared/ui/Input";
 import { Pre } from "@/shared/ui/Pre";
-import { Auth } from "@/features/auth";
-import { Blog } from "@/screens/blog";
 import { NewsBlog } from "@/widgets/news-block";
 import Image from "next/image";
+import { FormEventHandler, useCallback, useState } from "react";
 
 export default function Home() {
   const [nominals, setNominals] = useState<Nominal[]>([]);
@@ -41,7 +41,7 @@ export default function Home() {
       <Auth />
       <Blog />
       <NewsBlog />
-      <h2>ATM 2</h2>
+      <h2>ATM</h2>
       <Image alt="globe" src="/globe.svg" width={20} height={20} />
       <br />
       <form onSubmit={submitHandler} className="w-100 pl-5">
