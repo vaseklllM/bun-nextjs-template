@@ -2,7 +2,7 @@ import { ATM } from "@/entities/atm";
 import { RevalidateData } from "@/features/revalidate-data";
 import Link from "next/link";
 
-export default async function AtmPage() {
+export default function AtmPage() {
   return (
     <div className="p-4">
       <Link href="/">go home</Link>
@@ -11,6 +11,8 @@ export default async function AtmPage() {
       <RevalidateData />
       <h2 className="mt-5">ATM</h2>
       <ATM />
+      <br />
+      <br />
     </div>
   );
 }

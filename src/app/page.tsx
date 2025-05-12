@@ -14,7 +14,7 @@ export default async function Home() {
   const catsRes = await fetch(
     "https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=beng&api_key=REPLACE_ME",
     {
-      cache: "no-cache",
+      cache: "force-cache",
       next: {
         tags: ["cats"],
       },
@@ -41,7 +41,7 @@ export default async function Home() {
               height={cat.height / 4}
             />
           </div>
-        ))}{" "}
+        ))}
       </div>
       <pre>{JSON.stringify(cats, null, 2)}</pre>
       <br />

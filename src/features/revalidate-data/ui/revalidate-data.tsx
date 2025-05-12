@@ -27,6 +27,9 @@ export function RevalidateData() {
         // console.log(`${cats[0].id} - ${cats[1].id}`);
 
         router.refresh();
+        console.log("refreshed");
+
+        // router.prefetch("/");
       }}
     >
       revalidate data
