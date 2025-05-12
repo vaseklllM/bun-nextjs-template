@@ -14,6 +14,7 @@ export default async function Home() {
   const catsRes = await fetch(
     "https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=beng&api_key=REPLACE_ME",
     {
+      cache: "no-cache",
       next: {
         tags: ["cats"],
       },
@@ -26,18 +27,22 @@ export default async function Home() {
     <div className="p-4">
       <Link href="/atm">go atm</Link>
       <br />
+      <br />
       <RevalidateData />
       <br />
       <h3>cars</h3>
-      {cats.map((cat: any) => (
-        <Image
-          key={cat.id}
-          alt="cat"
-          src={cat.url}
-          width={cat.width / 3}
-          height={cat.height / 3}
-        />
-      ))}
+      <div className="flex flex-wrap gap-2">
+        {cats.map((cat: any) => (
+          <div key={cat.id}>
+            <Image
+              alt="cat"
+              src={cat.url}
+              width={cat.width / 4}
+              height={cat.height / 4}
+            />
+          </div>
+        ))}{" "}
+      </div>
       <pre>{JSON.stringify(cats, null, 2)}</pre>
       <br />
       <Auth />
