@@ -3,7 +3,7 @@
 import { Button } from "@/shared/ui/Button";
 import { useRouter } from "next/navigation";
 
-export function RevalidateData() {
+export const RevalidateData = () => {
   const router = useRouter();
 
   return (
@@ -35,4 +35,4 @@ export function RevalidateData() {
       revalidate data
     </Button>
   );
-}
+};

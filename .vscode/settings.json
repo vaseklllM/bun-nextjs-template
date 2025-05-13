@@ -6,7 +6,7 @@
   "tailwindCSS.experimental.classRegex": [],
   "editor.wordWrap": "on",
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true
+    "source.organizeImports": "explicit"
   },
   "editor.inlineSuggest.enabled": false
 }
