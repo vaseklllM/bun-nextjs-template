@@ -2,7 +2,7 @@ import { ATM } from "@/entities/atm";
 import { RevalidateData } from "@/features/revalidate-data";
 import Link from "next/link";
 
-export default function AtmPage() {
+const AtmPage = async () => {
   return (
     <div className="p-4">
       <Link href="/">go home</Link>
@@ -15,4 +15,6 @@ export default function AtmPage() {
       <br />
     </div>
   );
-}
+};
+
+export default AtmPage;
