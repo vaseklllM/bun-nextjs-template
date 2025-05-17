@@ -2,7 +2,7 @@ import { ATM } from "@/entities/atm";
 import { RevalidateData } from "@/features/revalidate-data";
 import Link from "next/link";
 
-const AtmPage = async () => {
+const AtmPage = async (a) => {
   return (
     <div className="p-4">
       <Link href="/">go home</Link>
