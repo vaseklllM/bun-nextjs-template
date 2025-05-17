@@ -3,7 +3,7 @@ import { RevalidateData } from "@/features/revalidate-data";
 import Link from "next/link";
 
 const AtmPage = async () => {
-  console.log("hi 2");
+  console.log("hi 3");
 
   return (
     <div className="p-4">
