@@ -13,12 +13,12 @@ type Store = State & Actions;
 export async function getPosts() {
   const data = await fetch(
     `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=beng&api_key=REPLACE_ME`,
+    { cache: "force-cache" },
   );
   return await data.json();
 }
 
 export class DataLoader {
-  private _isInit: boolean = false;
   private _store = create<Store>((set) => ({
     data: undefined,
     setData: (data) => set((state) => ({ ...state, data })),
@@ -32,12 +32,7 @@ export class DataLoader {
     });
     const posts: any[] = await data.json();
 
-    if (!this._isInit) {
-      console.log("init");
-
-      this._store.getState().setData(posts);
-      this._isInit = true;
-    }
+    this._store.getState().setData(posts);
   }
 
   public useData() {

@@ -2,17 +2,19 @@
 
 import { getPosts } from "@/app/atm/fetcher";
 import { Button } from "@/shared/ui/Button";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+// import { posts as postsStore } from "../../../app/atm/page";
 
 export const RevalidateData = () => {
   const router = useRouter();
+  const queryClient = useQueryClient();
 
-  const [posts, setPosts] = useState({});
-
-  useEffect(() => {
-    getPosts().then(setPosts);
-  }, []);
+  const { data } = useQuery({
+    queryKey: ["posts"],
+    queryFn: () => getPosts(),
+    enabled: !queryClient.getQueryData(["posts"]),
+  });
 
   return (
     <>
@@ -32,11 +34,9 @@ export const RevalidateData = () => {
 
           // const cats = await catsRes.json();
 
-          console.log("Cache revalidated.");
           // console.log(`${cats[0].id} - ${cats[1].id}`);
 
           router.refresh();
-          console.log("refreshed");
 
           // router.prefetch("/");
         }}
@@ -44,7 +44,7 @@ export const RevalidateData = () => {
         revalidate data
       </Button>
 
-      <pre>{JSON.stringify(posts, null, 2)}</pre>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </>
   );
 };
